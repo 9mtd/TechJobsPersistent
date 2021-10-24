@@ -17,6 +17,7 @@ namespace TechJobsPersistent.Models
 
         public Job()
         {
+            JobSkills = new List<JobSkill>();
         }
 
         public Job(string name)

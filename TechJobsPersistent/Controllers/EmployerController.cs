@@ -49,10 +49,10 @@ namespace TechJobsPersistent.Controllers
                 context.Employers.Add(newEmployer);
                 context.SaveChanges();
 
-                return View("/Employer");
+                return RedirectToAction("Index");
             }
 
-            return View(addEmployerViewModel);
+            return View("Add", addEmployerViewModel);
         }
 
         public IActionResult About(int id)
