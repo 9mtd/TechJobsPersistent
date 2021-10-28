@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TechJobsPersistent.ViewModels
 {
 
-    //Part 2: Adding Employers
+    //PART 2: Adding Employers
     public class AddEmployerViewModel
     {
         [Required(ErrorMessage = "Name is required")]

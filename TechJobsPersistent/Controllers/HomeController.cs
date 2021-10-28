@@ -29,10 +29,11 @@ namespace TechJobsPersistent.Controllers
             return View(jobs);
         }
 
+
+        //PART 3: update the AddJobViewModel object so that you pass all of the Skill objects in the database to the constructor.
         [HttpGet("/Add")]
         public IActionResult AddJob()
         {
-
             var employersList = context.Employers.Select(s => new SelectListItem()
             {
                 Text = s.Name,
@@ -46,6 +47,11 @@ namespace TechJobsPersistent.Controllers
             return View(addJobViewModel);
         }
 
+
+        //PART 2: Adding a Job - 4. take in an instance of AddJobViewModel and make sure that
+        //any validation conditions you want to add are met before creating a new Job object and saving it to the database.
+        //PART 3: pass in a new parameter: an array of strings called selectedSkills.
+        //When we allow the user to select multiple checkboxes, the user’s selections are stored in a string array. 
         [HttpPost]
         public IActionResult ProcessAddJobForm(AddJobViewModel addJobViewModel, List<int> selectedSkills)
         {
@@ -61,6 +67,7 @@ namespace TechJobsPersistent.Controllers
 
                 if (selectedSkills != null && selectedSkills.Any())
                 {
+                    //AddRange() method adds the entire collection of elements in the list
                     context.JobSkills.AddRange(selectedSkills.Select(skillId => new JobSkill { SkillId = skillId, Job = newJob }));
                 }
 

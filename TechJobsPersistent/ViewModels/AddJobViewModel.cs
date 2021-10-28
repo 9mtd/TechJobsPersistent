@@ -15,26 +15,15 @@ namespace TechJobsPersistent.ViewModels
             Skills = skills;
         }
 
+
+        //PART 3: Add a property for a list of each Skill object in the database.
+        //Pass another parameter of a list of Skill objects.
+        //Set the List<Skill> property equal to the parameter you have just passed in.
         [Required]
         public string Name { get; set; }
         public List<SelectListItem> Employers { get; set; }
         public int EmployerId { get; set; }
         public List<Skill> Skills { get; set; }
-        //public List<Skill> employers { get; set; }
-        //{
-        //    Employers = new List<SelectListItem>();
-
-        //    foreach (var employer in employers)
-        //    {
-        //        Employers.Add(
-        //            new SelectListItem
-        //            {
-        //                Value = employer.Id.ToString(),
-        //                Text = employer.Name
-        //            }
-        //        ); ;
-        //    }
-        //}
 
 
 

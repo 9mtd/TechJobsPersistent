@@ -13,7 +13,7 @@ namespace TechJobsPersistent.Controllers
 {
     public class EmployerController : Controller
     {
-        //Part 2: CONTROLLERS - Set up a private DbContext. Pass it into a EmployerController constructor
+        //PART 2: CONTROLLERS - 1. Set up a private DbContext. Pass it into a EmployerController constructor
         private JobDbContext context;
         public EmployerController(JobDbContext dbContext)
         {
@@ -21,6 +21,7 @@ namespace TechJobsPersistent.Controllers
          }
 
 
+        //PART 2: CONTROLLERS - 2. Complete Index() so that it passes all of the Employer objects in the database to the view
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -28,6 +29,8 @@ namespace TechJobsPersistent.Controllers
             return View(employers);
         }
 
+
+        //PART 2: CONTROLLERS - 3. Create an instance of AddEmployerViewModel inside of the Add() method and pass the instance into the View() return method.
         public IActionResult Add()
         {
             
@@ -35,6 +38,8 @@ namespace TechJobsPersistent.Controllers
             return View(addEmployerViewModel);
         }
 
+
+        //PART 2: CONTROLLERS - 4.Add the appropriate code to ProcessAddEmployerForm() so that it will process form submissions 
         [HttpPost]
         public IActionResult ProcessAddEmployerForm(AddEmployerViewModel addEmployerViewModel)
         {
@@ -55,9 +60,10 @@ namespace TechJobsPersistent.Controllers
             return View("Add", addEmployerViewModel);
         }
 
+
+        //PART 2: CONTROLLERS - 5.Make sure the About() method is actually passing an Employer object to the view for display.
         public IActionResult About(int id)
         {
-            
             var empl = context.Employers.SingleOrDefault(s => s.Id == id);
             return View(empl);
         }
