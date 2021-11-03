@@ -6,11 +6,12 @@
 
 --Part 2: query to list the names of the employers in St. Louis City
 SELECT * 
-FROM employers 
+FROM techjobs.employers 
 WHERE Location = "St. Louis City";
 
 
 --Part 3: query to return list of the names & descriptions of all skills in alphabetical order.
-SELECT name, description
-FROM skills 
+SELECT distinct name, description
+FROM techjobs.skills
+INNER JOIN techjobs.jobskills ON skills.Id = jobskills.SkillId
 ORDER BY name ASC;
